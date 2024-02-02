@@ -1,25 +1,22 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AnimeDetails from './AnimeDetails';
-import './index.css'
-import NavBar from './navbar';
+import RegistrationForm from './registraionFrom';
+import NavBar from './NavBar';
+import './index.css';
 
 function App() {
-  const [data, setData] = useState('');
-
-
-
-
   return (
-    <div>
-      <NavBar/>
-      <br></br>
-      <AnimeDetails />
-
-
-
-
-  </div>
+    <Router>
+      <div>
+        <NavBar />
+        <br />
+        <Routes>
+          <Route path="/AnimeDetails" element={<AnimeDetails />} />
+          <Route path="/register" element={<RegistrationForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
